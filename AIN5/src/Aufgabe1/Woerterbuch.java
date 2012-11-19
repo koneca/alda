@@ -20,29 +20,26 @@ public class Woerterbuch implements Dictionary<String, String> {
 	public static final int MAP = 3;
 	public static final File file = new File("./src/Aufgabe1/dtengl.txt");
 	
-//	public Woerterbuch(){
-////		wb = new SortedArrayDictionary<String, String>();
-//	}
+	public Woerterbuch(){
+		wb = new SortedArrayDictionary<String, String>();
+	}
 	
 	@Override
 	public String insert(String key, String value) {
-		// TODO Auto-generated method stub
-		wb.insert(key, value);
-		return null;
+        if (key.equals("") || value.equals("")) {
+            throw new IllegalArgumentException("Please insert both words.");
+        }
+		return wb.insert(key, value);
 	}
 
 	@Override
 	public String search(String key) {
-		// TODO Auto-generated method stub
-		wb.search(key);
-		return null;
+		return wb.search(key);
 	}
 
 	@Override
 	public String remove(String key) {
-		// TODO if key.equals("")
-		wb.remove(key);
-		return null;
+		return wb.remove(key);
 	}
 	
 	@Override
@@ -55,7 +52,7 @@ public class Woerterbuch implements Dictionary<String, String> {
 						
 		switch (i) {
 			case SARRAY:
-//				wb = new SortedArrayDictionary<String, String>();
+				wb = new SortedArrayDictionary<String, String>();
 				break;
 			case HASH:
 				wb = new HashDictionary<String, String>();
